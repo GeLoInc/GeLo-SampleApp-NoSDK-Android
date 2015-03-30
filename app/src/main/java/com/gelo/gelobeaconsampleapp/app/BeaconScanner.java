@@ -79,8 +79,8 @@ public class BeaconScanner {
 
             if (UUIDHex.equals(GELO_UUID)) {
                 //Bytes 25 and 26 of the advertisement packet represent the major value
-                int major = (scanRecord[25] << 8)
-                        | (scanRecord[26] << 0);
+                int major = ((scanRecord[25]  & 0xFF) << 8)
+                        | (scanRecord[26]  & 0xFF);
 
                 //Bytes 27 and 28 of the advertisement packet represent the minor value
                 int minor = ((scanRecord[27] & 0xFF) << 8)
